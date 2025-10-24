@@ -10,7 +10,6 @@ public class Review {
   private static ArrayList<String> negAdjectives = new ArrayList<>();
 
   static {
-    // Load sentiment values
     try {
       Scanner input = new Scanner(new File("cleanSentiment.csv"));
       while (input.hasNextLine()) {
@@ -22,7 +21,6 @@ public class Review {
       System.out.println("Error reading or parsing cleanSentiment.csv");
     }
 
-    // Load positive adjectives
     try {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
       while (input.hasNextLine()) {
@@ -33,7 +31,6 @@ public class Review {
       System.out.println("Error reading or parsing positiveAdjectives.txt");
     }
 
-    // Load negative adjectives
     try {
       Scanner input = new Scanner(new File("negativeAdjectives.txt"));
       while (input.hasNextLine()) {
@@ -99,7 +96,6 @@ public class Review {
     return Math.random() < 0.5 ? randomPositiveAdj() : randomNegativeAdj();
   }
 
-  // Original method (used for file-based reviews)
   public static double totalSentiment(String filename) {
     String review = textToString(filename);
     String[] words = review.split(" ");
@@ -111,7 +107,6 @@ public class Review {
     return total;
   }
 
-  // New method for direct review text
   public static double totalSentimentFromText(String reviewText) {
     String[] words = reviewText.split(" ");
     double total = 0.0;
