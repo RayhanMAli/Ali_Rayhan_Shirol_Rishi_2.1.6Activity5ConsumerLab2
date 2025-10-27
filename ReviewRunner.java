@@ -34,8 +34,9 @@ class ReviewRunner {
       System.out.println("F1 is better rated.");
     } else if (supermanScore > f1Score) {
       System.out.println("Superman is better rated.");
-    } else {
-      System.out.println("Both movies are equally rated.");
-    }
+      else if(f1Score==supermanScore) && (f1Score !=0){
+        System.out.println("Both movies are rated the same");
+      }
+    } 
   }
 }
