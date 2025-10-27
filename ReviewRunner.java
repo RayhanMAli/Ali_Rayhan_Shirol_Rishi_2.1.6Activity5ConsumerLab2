@@ -24,18 +24,8 @@ class ReviewRunner {
       System.err.println("File not found: " + e.getMessage());
     }
 
-    double f1Score = 0.0;
-    double supermanScore = 0.0;
-
-    for (String review : f1Reviews) {
-      double score = Review.totalSentimentFromText(review);
-      f1Score += score;
-    }
-
-    for (String review : supermanReviews) {
-      double score = Review.totalSentimentFromText(review);
-      supermanScore += score;
-    }
+    double f1Score = Review.calculateTotalSentiment(f1Reviews);
+    double supermanScore = Review.calculateTotalSentiment(supermanReviews);
 
     System.out.println("Total sentiment score for F1: " + f1Score);
     System.out.println("Total sentiment score for Superman: " + supermanScore);
